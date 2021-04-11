@@ -18,28 +18,13 @@
     <div id="service">
       <div class="service_title">サービス</div>
       <div class="service_wrap">
-       <div class="service_container">
-         <img src="./assets/img/service1.png" alt="">
-        
-         <h3>IT人材育成事業</h3>
-         <p>これまでに培った教育手法を生かして、短期間で即戦力のIT人材を育成します。</p>
-        </div>
-        <div class="service_container">
-          <img src="./assets/img/service2.png" alt="" >
-          <h3>コーチング事業</h3>
-          <p>目標達成を最短で実現するために、プロのコーチによるマンツーマンのサポートを実施します。</p>
-        </div>
-          <div class="service_container">
-            <img src="./assets/img/service3.png" alt="">
-            <h3>ITコンサル事業</h3>
-            <p>経営戦略にIT戦略を策定し、システム開発の提案やシステムの最適化を通じて、企業の経営をサポートします。</p>
-          </div>
-            <div class="service_container">
-              <img src="./assets/img/service4.png" alt="">
-              <h3>デジタルトランスフォーメーション事業</h3>
-              <p>人々の生活をよりよいものに変革するために様々なデジタル技術を活用し、革新的なソリューションやサービスを生み出します。</p>
-            </div>
-       </div>
+       <div class="service_container" v-for="(data,index) in Services" :key="index">
+         <a href=""></a>
+         <img :src="data.img" alt/>
+         <h3>{{data.title}}</h3>
+         <p>{{data.sentence}}</p>
+       </div>  
+      </div>
 
         <div class="service_btn">
           <button class="service_button" type="submit">
@@ -70,6 +55,7 @@
       <div class="blog_title">社員ブログ</div>
       <div class="blog_wrap">
         <div class="blog_container" v-for="(data, index) in Blogs" :key="index">
+          <a href=""></a>
           <img :src="data.img" alt/>
           <p>{{data.date}}</p>
           <h3><a href="">{{data.sentence}}</a></h3>
@@ -81,7 +67,7 @@
           </button>
         </div>
       </div>
-       <!-- company -->
+   <!-- company -->
   <div id="company">
     <div class="company_wrap">
     <a href="./company.html" class="company_text">
@@ -117,18 +103,48 @@ import CommonFooter from "./components/CommonFooter.vue";
 export default {
   data() {
     return{
+      Services:[
+        {
+          a:"#",
+          img: require("./assets/img/service1.png"),
+          title:"IT人材育成事業",
+          sentence:"これまでに培った教育手法を生かして、短期間で即戦力のIT人材を育成します。"
+        },
+        {
+          a:"#",
+          img: require("./assets/img/service2.png"),
+          title:"コーチング事業",
+          sentence:"目標達成を最短で実現するために、プロのコーチによるマンツーマンのサポートを実施します。"
+        },
+        {
+          a:"#",
+          img: require("./assets/img/service3.png"),
+          title:"ITコンサル事業",
+          sentence:"経営戦略にIT戦略を策定し、システム開発の提案やシステムの最適化を通じて、企業の経営をサポートします。"
+        },
+        {
+          a:"#",
+          img: require("./assets/img/service4.png"),
+          title:"デジタルトランスフォーメーション事業",
+          sentence:"人々の生活をよりよいものに変革するために様々なデジタル技術を活用し、革新的なソリューションやサービスを生み出します。"
+        }
+
+      ],
       Blogs:[
         {
+          a:"#",
           img: require("./assets/img/blog.png"),
           date:"2019/07/17",
           sentence:"会社を創業した理由"
         },
-        {
+        { 
+          a:"#",
           img: require("./assets/img/blog.png"),
           date:"2019/11/11",
           sentence:"ITエンジニアを育成育成する最強メソッド"
         },
         {
+          a:"#",
           img: require("./assets/img/blog.png"),
           date:"2020/08/01",
           sentence:"コーチングによるモチベーション向上理論"
@@ -598,7 +614,5 @@ input, select {
   .service_button {
     margin: 20px 0 30px 0;
   }
-
  }
 </style>
-
