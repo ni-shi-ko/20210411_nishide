@@ -58,43 +58,20 @@
       </div>
       </div>
       <div class="news_list">
-        <div class="news_message1">
-          <a href=""></a>
-        <p> 2019/07/17</p>  
-        <h3>会社を創業しました。</h3>
+      <div class="news_message" v-for="(data, index) in Newses" :key="index">
+       <p>{{data.date}}</p>
+       <h3>{{data.sentence}}</h3>
       </div>
-        <div class="news_message2">
-        <a href=""></a>
-        <p>2020/04/01</p>
-        <h3>資金調達を行いました。</h3>
-      </div>
-        <div class="news_message3">
-          <a href=""></a>
-          <p>2020/10/01</p>
-          <h3>東京新聞に掲載されました。</h3>
-        </div>
       </div>
     </div>
       <!-- blog -->
     <div id="blog">
       <div class="blog_title">社員ブログ</div>
-      <div class="blog_wrap" v-for="(data, index) in Blogs" :key="index">
-        <div class="blog_container">
-          <img src="./assets/img/blog.png" alt="">
-          <p>2019/07/17</p>
-          <h3><a href="">会社を創業した理由</a></h3>
-        </div>
-
-        <div class="blog_container">
-          <img src="./assets/img/blog.png" alt="">
-          <p>2019/11/11</p>
-          <h3><a href="">ITエンジニアを育成する最強メソッド</a></h3>
-        </div>
-
-        <div class="blog_container">
-          <img src="./assets/img/blog.png" alt="">
-          <p>2020/08/01</p>
-          <h3><a href="">コーチングによるモチベーション向上理論</a></h3>
+      <div class="blog_wrap">
+        <div class="blog_container" v-for="(data, index) in Blogs" :key="index">
+          <img :src="data.img" alt/>
+          <p>{{data.date}}</p>
+          <h3><a href="">{{data.sentence}}</a></h3>
         </div>
       </div>
       <div class="service_btn">
@@ -137,6 +114,41 @@
 import CommonHeader from "./components/CommonHeader.vue";
 import CommonFooter from "./components/CommonFooter.vue";
 export default {
+  data() {
+    return{
+      Blogs:[
+        {
+          img: require("./assets/img/blog.png"),
+          date:"2019/07/17",
+          sentence:"会社を創業した理由"
+        },
+        {
+          img: require("./assets/img/blog.png"),
+          date:"2019/11/11",
+          sentence:"ITエンジニアを育成育成する最強メソッド"
+        },
+        {
+          img: require("./assets/img/blog.png"),
+          date:"2020/08/01",
+          sentence:"コーチングによるモチベーション向上理論"
+        }
+      ],
+      Newses:[
+        {
+          date:"2019/07/17",
+          sentence:"会社を創業しました。"
+        },
+        {
+          date:"2020/04/01",
+          sentence:"資金調達を行いました。"
+        },
+        {
+          date:"2020/10/01",
+          sentence:"東京新聞に掲載されました。"
+        }
+      ]
+    };
+  },
   components: {
     CommonHeader,
     CommonFooter
@@ -239,6 +251,7 @@ hr {
 input, select {
   vertical-align:middle;
 }
+/* top */
 #top {
   background-image: url("./assets/img/mv.png");
   background-size: cover;
@@ -332,7 +345,7 @@ input, select {
 /* news */
 #news {
   background-color: #222323;
-  padding: 5% 17%;
+  padding: 5% 15%;
 }.news_title {
   display: flex;
   justify-content: space-between;
@@ -354,45 +367,26 @@ input, select {
 .news_button:hover {
   background-color: rgba(154, 24, 37, 1.0);
 }
-.news_message1 {
+.news_message {
   background-color: #fff;
   width: 100%;
   margin-bottom: 10px;
   padding: 23px 0px 23px 0;
   box-sizing: border-box;
-}
-.news_message2 {
-  background-color: #fff;
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 23px 0px 23px 0;
-}
-.news_message3 {
-  background-color: #fff;
-  width: 100%;
-  padding: 23px 0px 23px 0;
-}
-.news_message1 p,
-.news_message2 p,
-.news_message3 p {
-  margin-left: 25px;
-}
-.news_message1,
-.news_message2,
-.news_message3 {
   display: flex;
   line-height: 1.5;
+
 }
-.news_message1 h3,
-.news_message2 h3,
-.news_message3 h3 {
+.news_message p {
+  margin-left: 25px;
+}
+.news_message h3 {
   margin-left: 10px;
 }
-.news_message1:hover,
-.news_message2:hover,
-.news_message3:hover {
+.news_message:hover {
   background-color: rgba(188, 188, 188, 1.0);
 }
+
 /* blog */
 .blog_title {
   text-align: center;
@@ -487,7 +481,7 @@ input, select {
 .contact_button {
   padding: 13px 90px;
 }
- @media screen and (max-width: 768px){
+ @media screen and (max-width: 768px) {
      /* top */
   #top {
     display: flex;
@@ -541,25 +535,17 @@ input, select {
   .news_title {
     line-height: 1.0;
   }
-  .news_message1,
-  .news_message2,
-  .news_message3 {
+  .news_message {
     padding: 13px;
   }
-  .news_message1,
-  .news_message2,
-  .news_message3 {
+  .news_message {
     box-sizing: border-box;
   }
-  .news_message1 h3,
-  .news_message2 h3,
-  .news_message3 h3 {
+  .news_message h3 {
     font-size: 14px;
     line-height: 1.0;
   }
-  .news_message1 p,
-  .news_message2 p,
-  .news_message3 p {
+  .news_message p {
     font-size: 14px;
     line-height: 1.0;
     margin: 0;
