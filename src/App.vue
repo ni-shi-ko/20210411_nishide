@@ -59,6 +59,7 @@
       </div>
       <div class="news_list">
       <div class="news_message" v-for="(data, index) in Newses" :key="index">
+       <a href=""></a>
        <p>{{data.date}}</p>
        <h3>{{data.sentence}}</h3>
       </div>
@@ -135,14 +136,17 @@ export default {
       ],
       Newses:[
         {
+          a:"#",
           date:"2019/07/17",
           sentence:"会社を創業しました。"
         },
         {
+          a:"#",
           date:"2020/04/01",
           sentence:"資金調達を行いました。"
         },
         {
+          a:"#",
           date:"2020/10/01",
           sentence:"東京新聞に掲載されました。"
         }
