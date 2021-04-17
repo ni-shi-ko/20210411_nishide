@@ -5,19 +5,20 @@
       © 2020 TECH inc.
     </div>
   <div class="footer_right">
-    <ul>
-      <li class="first_list"><a href="./index.html">ホーム</a></li>
+       <ul>
+      <li class="first_list"><a href="./index.html">Home</a></li>
       <li>
         <a href="./service.html">
-          事業内容
+          Service
         </a>
       </li>
-      <li><a href="./news.html">ニュース</a></li>
-      <li><a href="./blog.html">社員ブログ</a></li>
-      <li><a href="./company.html">会社概要</a></li>
-      <li><a href="./recruit.html">採用情報</a></li>
-      <li class="last_list"><a href="./contact.html">お問い合わせ</a></li>
+      <li><a href="./news.html">News</a></li>
+      <li><a href="./blog.html">Blog</a></li>
+      <li><a href="./company.html">Company</a></li>
+      <li><a href="./recruit.html">Recruit</a></li>
+      <li class="last_list"><a href="./contact.html">Contact</a></li>
     </ul>
+
   </div>
   </div>
 </div>
